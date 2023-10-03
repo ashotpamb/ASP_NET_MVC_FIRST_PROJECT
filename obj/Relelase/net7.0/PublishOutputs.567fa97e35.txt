@@ -1,0 +1,13 @@
+/home/arsh/Downloads/Shop/cherry/CherryShop
+/home/arsh/Downloads/Shop/cherry/appsettings.Development.json
+/home/arsh/Downloads/Shop/cherry/appsettings.json
+/home/arsh/Downloads/Shop/cherry/package.json
+/home/arsh/Downloads/Shop/cherry/CherryShop.dll
+/home/arsh/Downloads/Shop/cherry/CherryShop.runtimeconfig.json
+/home/arsh/Downloads/Shop/cherry/CherryShop.pdb
+/home/arsh/Downloads/Shop/cherry/Microsoft.EntityFrameworkCore.dll
+/home/arsh/Downloads/Shop/cherry/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/arsh/Downloads/Shop/cherry/Microsoft.EntityFrameworkCore.Relational.dll
+/home/arsh/Downloads/Shop/cherry/MySqlConnector.dll
+/home/arsh/Downloads/Shop/cherry/Pomelo.EntityFrameworkCore.MySql.dll
+/home/arsh/Downloads/Shop/cherry/CherryShop.deps.json

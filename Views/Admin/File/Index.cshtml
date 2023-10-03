@@ -1,0 +1,25 @@
+@model List<CherryShop.Models.Files.File>;
+@{
+    ViewData["Title"] = "Files";
+}
+<h1 style="text-align: center;">All Files</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            @foreach (var file in Model)
+            {
+                <div class="card">
+                    <img src="@file.Path" class="card-img-top" alt="Admin Image">
+                    <div class="card-body">
+                        <a href="/admin/file-remove?id=@file.Id" class="btn btn-primary">Remove</a>
+                    </div>
+                </div>
+            }
+            <button class="btn btn-outline-primary btn-lg btn-block" onclick="window.location = '/admin/upload'">Upload
+                File</button>
+
+
+        </div>
+    </div>
+</div>

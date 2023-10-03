@@ -1,0 +1,53 @@
+@model List<CherryShop.Models.Products.Product>;
+@{
+    ViewData["Title"] = "Products";
+
+}
+<h1 style="text-align: center;">All products</h1>
+
+
+<div class="table-responsive" style="width: 100% !important;">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Action Edit</th>
+                <th>Action Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var products in Model)
+            {
+                <tr>
+                    <td>@products.Id</td>
+                    <td>@products.Name</td>
+                    <td>@products.Price.ToString("0.00")</td>
+                    @if (products.FileReferences != null && products.FileReferences.Count > 0)
+                    {
+                        foreach (var fileReference in products.FileReferences)
+                        {
+                            <td><img src="@fileReference.File.Path" alt="@fileReference.File.name" width="50" height="50"></td>
+                            break;
+                        }
+                    }
+                    else
+                    {
+
+                        <td><img src="" alt="" width="50" height="50" /></td>
+                    }
+                    <td><a href="/admin/product-edit?Id=@products.Id">Edit</a></td>
+                    <td><a href="/admin/product-delete?Id=@products.Id">Delete</a></td>
+
+                </tr>
+
+            }
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <button class="btn btn-outline-primary btn-lg btn-block" onclick="window.location = '/admin/new-product'">New
+        Product</button>
+
+</div>

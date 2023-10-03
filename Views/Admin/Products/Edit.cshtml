@@ -1,0 +1,98 @@
+@model CherryShop.Models.FileProduct.FileProduct<CherryShop.Models.Products.Product>
+
+@{
+    ViewData["Title"] = "Product Edit";
+}
+
+<!-- Your existing code for the file selection modal and scripts -->
+
+<form asp-controller="Products" asp-action="Store" method="post">
+    <input type="hidden" value="@string.Join(',', Model.File.Select(f => f.Id))" class="file_ids" name="file_ids[]">
+
+   <!-- Prepopulate the form fields with existing data -->
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="text" class="form-control" name="Name" id="exampleFormControlInput1" placeholder="Product Name"
+            value="@Model.TProduct.Name">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Price</label>
+        <input type="number" class="form-control" name="Price" id="exampleFormControlInput1" placeholder="Product Price"
+            value="@Model.TProduct.Price">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" id="Description" name="Description"
+            rows="4">@Model.TProduct.Description</textarea>
+    </div>
+
+    <!-- Rest of the form fields -->
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+    <!-- Render the file selection button -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileModal">
+        Select File
+    </button>
+
+    <!-- Render the file IDs input field -->
+    <input type="hidden" value="" class="file_ids" name="file_ids[]">
+
+    <!-- Rest of the form -->
+
+</form>
+<div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="fileModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fileModalLabel">Select File</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Render your list of files here -->
+                @foreach (var file in Model.File)
+                {
+                    <div class="file-item">
+                        <input type="checkbox" name="selectedFiles" value="@file.Id" id="file-@file.Id" />
+                        <label for="file-@file.Id">@file.name</label>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="selectFileBtn">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+            // Handler for the file selection button
+            $("#selectFileBtn").click(function () {
+                // Get the selected file IDs
+                var selectedFiles = [];
+                $("input[name='selectedFiles']:checked").each(function () {
+                    selectedFiles.push($(this).val());
+                });
+                $('.file_ids').val(selectedFiles)
+
+                // Do something with the selected file IDs
+                // For example, you can store them in an array or make an AJAX request
+
+                // Close the modal
+                $("#fileModal").modal("hide");
+            });
+
+            // Handler for selecting/deselecting a file item
+            $(document).on("change", "input[name='selectedFiles']", function () {
+                $(this).closest(".file-item").toggleClass("selected");
+            });
+        });
+    </script>
+}

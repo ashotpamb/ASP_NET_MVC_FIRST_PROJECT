@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header-nav {
+  background-color: #f8f8f8;
+  padding: 10px;
+}
+
+.header-nav .nav-link {
+  color: #333;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.footer {
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer a {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 100%;
+}
+
+.container .row {
+  width: 80%;
+  margin: auto;
+  background: rgb(186, 173, 173);
+  box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.container .row .header {
+  width: 605;
+  text-align: center;
+  max-width: auto;
+}
+
+.container .row .header h1 {
+  padding-top: 30px;
+  font-size: 40px;
+  color: rgb(164, 9, 138);
+}
+
+.container .row .header p {
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgb(236, 36, 123) !important;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.content .product {
+  flex: 1;
+  margin: 50px 20px;
+  box-shadow: 0px 0px 15px 0px rgb(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
+
+.content .product img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.content .product h4 {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.content .product a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #666;
+}
+
+.content .product p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.content .product span {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #888;
+}

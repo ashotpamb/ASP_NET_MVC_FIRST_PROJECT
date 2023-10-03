@@ -1,0 +1,13 @@
+@model CherryShop.Models.Menus.Menu;
+
+@{
+    ViewData["Title"] = "Menu form";
+}
+
+<form method="post" asp-controller="Menu" asp-action="Store">
+    <label for="Name">Title</label>
+    <input type="text" name="Name"/>
+    <label for="Url">Url</label>
+    <input type="text" name="Url" />
+    <button type="submit">Crete</button>
+</form>
